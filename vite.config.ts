@@ -9,4 +9,9 @@ export default defineConfig({
       typescript: true,
      })
   ],
+  resolve: {
+    alias: {
+      app: '/src',
+    },
+  },
 })

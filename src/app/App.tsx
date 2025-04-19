@@ -1,11 +1,13 @@
+import { FC } from "react";
+import { NavBar } from "../components"
 
-function App() {
+const App: FC = () => {
 
   return (
     <>
-      <div>Hii, I'm Siva</div>
+      <NavBar />
     </>
   )
 }
 
-export default App
+export default App;

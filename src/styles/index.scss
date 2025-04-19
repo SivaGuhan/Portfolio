@@ -1,5 +1,8 @@
 @use 'utilities';
 @use 'colors' as *;
+
+@use '../components/styles.scss';
+
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 $font-family-base: 'Rajdhani', sans-serif;

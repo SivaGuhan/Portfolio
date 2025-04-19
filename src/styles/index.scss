@@ -22,4 +22,8 @@ $font-family-base: 'Rajdhani', sans-serif;
 body {
   margin: 0;
   @extend .full-content;
+
+  #root {
+    @extend .full-content;
+  }
 }

@@ -1,9 +1,9 @@
 // flexbox utilities
 $flexDirections : (
-    'row',
-    'row-reverse',
-    'column',
-    'column-reverse'
+    row,
+    row-reverse,
+    column,
+    column-reverse
 );
 
 @each $direction in $flexDirections {
@@ -13,9 +13,9 @@ $flexDirections : (
 }
 
 $flexWraps : (
-    'nowrap',
-    'wrap',
-    'wrap-reverse'
+    nowrap,
+    wrap,
+    wrap-reverse
 );
 
 @each $wrap in $flexWraps {
@@ -25,11 +25,11 @@ $flexWraps : (
 }
 
 $justifyAlignContents : (
-    'flex-start',
-    'center',
-    'flex-end',
-    'space-between',
-    'space-around'
+    flex-start,
+    center,
+    flex-end,
+    space-between,
+    space-around
 );
 
 @each $content in $justifyAlignContents {
@@ -45,11 +45,11 @@ $justifyAlignContents : (
 }
 
 $alignSelf : (
-    'flex-start',
-    'center',
-    'flex-end',
-    'stretch',
-    'baseline'
+    flex-start,
+    center,
+    flex-end,
+    stretch,
+    baseline
 );
 
 @each $self in $alignSelf {
@@ -59,8 +59,8 @@ $alignSelf : (
 }
 
 $flexGrowShrink : (
-    '0',
-    '1'
+    0,
+    1
 );
 
 @each $grow in $flexGrowShrink {
@@ -76,8 +76,8 @@ $flexGrowShrink : (
 }
 
 $flexBasis : (
-    'auto',
-    'content'
+    auto,
+    content
 );
 
 @each $basis in $flexBasis {
@@ -87,12 +87,12 @@ $flexBasis : (
 }
 
 $flexOrder : (
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5'
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
 );
 
 @each $order in $flexOrder {
@@ -103,18 +103,7 @@ $flexOrder : (
 
 // grid utilities
 $gridRowsColumns : (
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '10',
-    '11',
-    '12'
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
 );
 
 @each $column in $gridRowsColumns {
@@ -151,11 +140,11 @@ $gridGaps: (
 
 // general utility classes
 $font-weights: (
-    'light': 300,
-    'regular': 400,
-    'medium': 500,
-    'semi-bold': 600,
-    'bold': 700
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semi-bold: 600,
+    bold: 700
 );
 
 @each $weight, $value in $font-weights {
@@ -205,10 +194,10 @@ $spacingScale : (
 }
 
 $positions : (
-    'relative',
-    'absolute',
-    'fixed',
-    'sticky'
+    relative,
+    absolute,
+    fixed,
+    sticky
 );
 
 @each $position in $positions {
@@ -226,14 +215,14 @@ $zIndexValues: 0, 10, 20, 30, 40, 50;
 }
 
 $displayValues : (
-    'flex',
-    'none',
-    'block',
-    'inline-block',
-    'inline',
-    'inline-flex',
-    'table',
-    'grid'
+    flex,
+    none,
+    block,
+    inline-block,
+    inline,
+    inline-flex,
+    table,
+    grid
 );
 
 @each $value in $displayValues {
@@ -243,9 +232,9 @@ $displayValues : (
 }
 
 $textAlignments: (
-    'left',
-    'center',
-    'right'
+    left,
+    center,
+    right
 );
 
 @each $alignment in $textAlignments {
@@ -255,9 +244,9 @@ $textAlignments: (
 }
 
 $textTransforms: (
-    'uppercase',
-    'lowercase',
-    'capitalize'
+    uppercase,
+    lowercase,
+    capitalize
 );
 
 @each $transform in $textTransforms {
@@ -267,9 +256,9 @@ $textTransforms: (
 }
 
 $textDecorations: (
-    'none',
-    'underline',
-    'line-through'
+    none,
+    underline,
+    line-through
 );
 
 @each $decoration in $textDecorations {
@@ -279,8 +268,8 @@ $textDecorations: (
 }
 
 $visibilities: (
-    'hidden',
-    'visible'
+    hidden,
+    visible
 );
 
 @each $visibility in $visibilities {
@@ -290,9 +279,9 @@ $visibilities: (
 }
 
 $overflows: (
-    'hidden',
-    'scroll',
-    'auto'
+    hidden,
+    scroll,
+    auto
 );
 
 @each $overflow in $overflows {

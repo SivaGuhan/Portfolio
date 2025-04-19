@@ -1,6 +1,8 @@
 @use "app/styles/utilities" as *;
 
 .nav-container {
+    @extend .d-flex;
+
     ul {
         list-style: none;
         @extend .m-0, .p-0;

@@ -2,9 +2,14 @@ import { FC, useState } from "react";
 import { MENU_OPTIONS } from "./constants";
 import { MenuOption } from "./types";
 import { RxHamburgerMenu, RxAvatar } from "react-icons/rx";
+import { useAppContext } from "../../store/AppContext";
 
 const NavBar: FC = () => {
     const [isNavBarOpen, setIsNavBarOpen] = useState(false);
+
+    const { state } = useAppContext();
+
+    const { activeMenu } = state;
 
     const onClickHamburger = () => {
         setIsNavBarOpen((prev) => !prev);
@@ -21,7 +26,7 @@ const NavBar: FC = () => {
                         {MENU_OPTIONS.map((option: MenuOption) => (
                             <li
                                 key={option.value}
-                                className="nav-list-item"
+                                className={`nav-list-item${activeMenu === option.value ? " active" : ""}`}
                             >
                                 {option.label}
                             </li>

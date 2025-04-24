@@ -3,7 +3,7 @@ import { AppState, AppAction } from '../types';
 import { appReducer } from './appReducer';
 
 const initialState: AppState = {
-    activeMenu: ''
+    activeMenu: 'about'
 }
 
 const AppContext = createContext<{

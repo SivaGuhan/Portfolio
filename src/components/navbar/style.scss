@@ -2,7 +2,7 @@
 @use "app/styles/colors" as *;
 
 .nav-container {
-    @extend .pos-fixed;
+    @extend .pos-sticky;
     top: 15px;
     right: 0;
     left: 0;
@@ -12,17 +12,23 @@
     @extend .d-flex, .align-center, .justify-center;
 
     .nav-inner-container {
-        width: 80%;
+        width: 90%;
         border: 1px solid $White;
         box-shadow: 0 0 10px $White;
         border-radius: 30px;
+        backdrop-filter: blur(16px);
         @extend .d-flex, .align-center, .justify-space-between;
         @extend .full-height, .pos-relative, .px-8;
     }
 
     .avatar {
         @extend .d-flex, .align-center, .justify-center;
-        @extend .full-height, .cursor-pointer;
+        @extend .cursor-pointer;
+        border-radius: 50%;
+        box-shadow: 0 0 5px $Teal400,
+                0 0 10px $Teal400,
+                0 0 20px $Teal300,
+                0 0 40px $Teal200;
 
         svg {
             height: 2em;
@@ -42,10 +48,19 @@
             transition: text-shadow 0.3s ease;
 
             &:hover {
-                text-shadow: 0 0 5px $Purple400,
-                0 0 10px $Purple400,
-                0 0 20px $Purple300,
-                0 0 40px $Purple200;
+                text-shadow: 0 0 5px $Teal400,
+                0 0 10px $Teal400,
+                0 0 20px $Teal300,
+                0 0 40px $Teal200;
+            }
+
+            &.active {
+                color: $Teal200;
+                text-shadow:
+                    0 0 8px $Teal200,
+                    0 0 15px $Teal100,
+                    0 0 30px $White,
+                    0 0 45px $Teal100;
             }
         }
     }
@@ -71,6 +86,8 @@
         padding: 1rem 0;
         box-shadow: 0 5px 15px $White;
         transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        background-color: $Black800;
       }
 
       .nav-list-wrapper-container.open {

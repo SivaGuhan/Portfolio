@@ -1,7 +1,8 @@
 @use 'utilities';
 @use 'colors' as *;
 
-@use '../components/styles.scss';
+@use '../components/styles.scss' as components;
+@use '../app/styles.scss' as apps;
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
@@ -18,12 +19,60 @@ $font-family-base: 'Rajdhani', sans-serif;
   background-color: $Black800;
 }
   
-  
 body {
   margin: 0;
   @extend .full-content;
 
   #root {
     @extend .full-content;
+    @extend .overflow-auto;
   }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    font-size: 0.9375em; // 15px
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    font-size: 0.875em; // 14px
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 0.8125em; // 13px
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    font-size: 0.75em; // 12px
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 20px;
+  background-image: linear-gradient(
+    $Teal200,
+    $Teal300,
+    $Teal400
+  );
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
 }

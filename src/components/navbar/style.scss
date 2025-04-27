@@ -9,6 +9,7 @@
     height: 7%;
     min-height: 50px;
     max-height: 60px;
+    z-index: 1000;
     @extend .d-flex, .align-center, .justify-center;
 
     .nav-inner-container {

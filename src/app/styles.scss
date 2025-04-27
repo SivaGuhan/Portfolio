@@ -1,1 +1,2 @@
-@use './about/style.scss';
+@use './about/style.scss' as about;
+@use './skills/style.scss' as skills;

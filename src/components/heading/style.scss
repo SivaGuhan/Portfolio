@@ -1,0 +1,11 @@
+@use 'app/styles/utilities' as *;
+
+.heading-wrapper {
+    @extend .d-flex, .align-center, .justify-center;
+    @extend .full-width, .py-8;
+    .heading {
+        all: unset;
+        font-size: 2em;
+        text-align: center;
+    }
+}

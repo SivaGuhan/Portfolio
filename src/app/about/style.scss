@@ -1,5 +1,6 @@
 @use 'app/styles/utilities' as *;
 @use 'app/styles/colors' as *;
+@use 'app/styles/animations' as *;
 
 .about-section-wrapper {
     margin-top: 20px;
@@ -22,6 +23,13 @@
             gap: 2rem;
             @extend .d-flex, .justify-center, .flex-column;
             @extend .full-height;
+
+            .about-name-wrapper {
+                @include slideTop(-300%);
+                & {
+                    animation: slideInFromTop 0.5s ease-out forwards;
+                }
+            }
 
             .about-text-wrapper {
                 @extend .d-flex, .flex-column;
@@ -84,6 +92,11 @@
                 text-align: center;
                 color: $Teal200;
                 border: 2px solid $Teal200;
+
+                @include slideBottom(300%);
+                & {
+                    animation: slideInFromBottom 0.5s ease-out forwards;
+                }
 
                 .icon-wrapper {
                     @extend .d-flex, .align-center, .justify-center;

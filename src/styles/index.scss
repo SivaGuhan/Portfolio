@@ -1,5 +1,6 @@
 @use 'utilities';
 @use 'colors' as *;
+@use 'animations' as animations;
 
 @use '../components/styles.scss' as components;
 @use '../app/styles.scss' as apps;

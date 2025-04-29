@@ -1,0 +1,141 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+@use 'app/styles/animations' as *;
+
+.experience-wrapper-container {
+    p {
+        all: unset;
+    }
+
+    .experience-items-wrapper {
+        @extend .d-flex, .flex-column, .gap-12, .align-center, .justify-center;
+        @extend .pos-relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(35% + 1rem + 7.5px);
+            width: 2px;
+            height: 100%;
+            background-color: #ccc;
+            transform: translateX(-50%);
+            box-shadow: 
+                3px 3px 8px $Teal200, 
+                -3px -3px 16px $Teal300,
+                6px 6px 25px $Teal400,
+                -6px -6px 35px $Teal100;
+
+                @media (max-width: 768px) {
+                    left: 0;
+                }
+          }
+
+        .experience-item {
+            @extend .d-flex, .gap-4, .justify-center;
+
+            .first-dot {
+                display: none;
+
+                @media (max-width: 768px) {
+                    display: block;
+                }
+            }
+
+            .second-dot {
+                display: block;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .timeline-dot {
+                width: 15px;
+                height: 15px;
+                background-color: $Teal300;
+                box-shadow: 0 0 5px $Teal400,
+                0 0 10px $Teal400,
+                0 0 20px $Teal300,
+                0 0 40px $Teal200;
+                border-radius: 50%;
+                z-index: 1;
+
+                @media (max-width: 768px) {
+                    position: absolute;
+                    top: 0;
+                    left: calc(-2rem - 7.5px);
+                }
+            }
+
+            .experience-item-name {
+                @extend .d-flex, .flex-column, .gap-4, .align-flex-end;
+                width: 35%;
+
+                .experience-item-company-wrapper {
+                    @extend .d-flex, .align-center, .gap-4;
+    
+                    .experience-item-company {
+                        font-size: 2em;
+                        @extend .font-weight-bold;
+                    }
+    
+                    .experience-item-icon {
+                        width: 30px;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    width: unset;
+                    align-items: flex-start;
+                }
+            }
+
+            .experience-item-content {
+                @extend .d-flex, .flex-column, .gap-4 ,.pr-8;
+                flex: 1;
+
+                .experience-item-title {
+                    @extend .font-weight-semi-bold;
+                    font-size: 1.7em;
+                }
+
+                .experience-item-description {
+                    font-size: 1.2em;
+                    line-height: 1.7em;
+                }
+            }
+
+            @media (max-width: 768px) {
+                position: relative;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            margin-left: 4rem;
+            padding-left: 2rem;
+        }
+    }
+
+    .title-animate {
+        @include slideLeft;
+        & {
+            animation: slideInFromLeft 1s ease-out forwards;
+        }
+    
+        @media (max-width: 768px) {
+            @include slideRight;
+            & {
+              animation: slideInFromRight 1s ease-out forwards;
+            }
+          }   
+    }
+
+    .content-animate {
+        @include slideRight;
+        & {
+            animation: slideInFromRight 1s ease-out forwards;
+        }
+    }
+}

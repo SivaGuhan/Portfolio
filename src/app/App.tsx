@@ -1,9 +1,10 @@
 import { FC, useRef } from "react";
+import { debounce } from "../utils/commonUtils";
+import { useAppContext } from "../store/AppContext";
 import { NavBar } from "../components"
 import About from "./about";
 import Skills from "./skills";
-import { debounce } from "../utils/commonUtils";
-import { useAppContext } from "../store/AppContext";
+import Experience from "./experience";
 
 const SECTIONS = [
   {
@@ -13,6 +14,10 @@ const SECTIONS = [
   {
     id: 'skills',
     Component: Skills
+  },
+  {
+    id: 'experience',
+    Component: Experience
   }
 ]
 
@@ -60,13 +65,17 @@ const App: FC = () => {
 
   return (
     <main 
-      className="overflow-auto full-content"
+      className="full-content"
+      style={{
+        overflowX: "hidden",
+        overflowY: "auto"
+      }}
       onScroll={handleScroll}
       ref={containerRef}
     >
       <NavBar onClickMenuItem={onClickMenuItem}/>
-      {SECTIONS.map((section) => (
-          <section.Component />
+      {SECTIONS.map((section, index) => (
+          <section.Component key={index}/>
       ))}
     </main>
   )

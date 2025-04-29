@@ -1,0 +1,51 @@
+@mixin slideLeft($direction: -90%) {
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(#{$direction});
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slideRight($direction: 90%) {
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(#{$direction});
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slideTop($direction: -90%) {
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(#{$direction});
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slideBottom($direction: 90%) {
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(#{$direction});
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

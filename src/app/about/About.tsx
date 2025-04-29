@@ -27,7 +27,7 @@ const About: FC = () => {
             <div className="about-section">
                 <div className="about-content">
                     <div className="about-text-wrapper">
-                        <section className="d-flex gap-4 align-center">
+                        <section className="about-name-wrapper d-flex gap-4 align-center">
                             <p className="about-title">Hi, I'm</p>
                             <span className="about-name">Siva Guhan</span>
                         </section>

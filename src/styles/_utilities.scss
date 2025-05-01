@@ -29,7 +29,8 @@ $justifyAlignContents : (
     center,
     flex-end,
     space-between,
-    space-around
+    space-around,
+    stretch,
 );
 
 @each $content in $justifyAlignContents {

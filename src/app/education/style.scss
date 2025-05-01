@@ -1,0 +1,77 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+
+.education-wrapper-container {
+
+    p {
+        all: unset;
+        display: block;
+    }
+
+    .education-list-wrapper {
+        @extend .d-flex, .justify-center, .align-stretch, .gap-8, .flex-wrap;
+        @extend .pos-relative;
+
+        .education-item-wrapper {
+            @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-4;
+            @extend .pos-relative, .p-8;
+            max-width: 30%;
+            box-shadow:
+            0 2px 4px 0 #b2dfdb,
+            0 4px 8px 0 #4db6ac,
+            0 6px 12px 0 #26a69a,
+            0 8px 16px 0 #009688,
+            0 10px 20px 0 #00796b;
+            border: 1px solid $White;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+
+            &.animate {
+                opacity: 1;
+            }
+
+            &.remove-animate {
+                opacity: 0;
+                transition: none;
+            }
+
+            .education-image-wrapper {
+                .education-image {
+                    max-height: 10rem;
+                    object-fit: cover;
+                }
+            }
+
+            .education-details-wrapper {
+                @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-4;
+                flex: 1;
+                .education {
+                    &-college {
+                        text-align: center;
+                        font-size: 2em;
+                    }
+
+                    &-pursue {
+                        text-align: center;
+                        font-size: 1.5em;
+                    }
+
+                    &-description {
+                        text-align: center;
+                        font-size: 1.3em;
+                        line-height: 1.7em;
+                    }
+                }
+            }
+
+            @media (max-width: 1250px) {
+                max-width: 50%;
+            }
+
+            @media (max-width: 768px) {
+                max-width: 70%;
+            }
+        }
+    }
+}

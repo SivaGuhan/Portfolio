@@ -15,6 +15,8 @@ $font-family-base: 'Rajdhani', sans-serif;
   box-sizing: border-box;
   @extend .full-content;
   @extend .font-weight-regular, .font-size-16;
+  @extend .m-0, .p-0;
+  line-height: 1;
 
   color: $White;
   background-color: $Black800;

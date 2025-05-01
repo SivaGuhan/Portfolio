@@ -5,6 +5,7 @@ import { NavBar } from "../components"
 import About from "./about";
 import Skills from "./skills";
 import Experience from "./experience";
+import Education from "./education";
 
 const SECTIONS = [
   {
@@ -18,6 +19,10 @@ const SECTIONS = [
   {
     id: 'experience',
     Component: Experience
+  },
+  {
+    id: 'education',
+    Component: Education,
   }
 ]
 

@@ -12,10 +12,34 @@
     radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 60%);
     @extend .d-flex, .align-center, .justify-center;
 
+    animation: scale-image linear;
+    animation-timeline: view();
+    animation-range: exit;
+
+    @keyframes scale-image {
+        25% {
+            opacity: 1,
+        }
+        85%, 100% {
+            opacity: 0;
+            scale: 3;
+        }
+    }
+
     .about-section {
         @extend .full-height;
         @extend .d-flex, .align-center, .justify-center;
         width: 90%;
+
+        animation: fade-out linear;
+        animation-timeline: view();
+        animation-range: exit -100px;
+
+        @keyframes fade-out {
+            50%, 100% {
+                opacity: 0;
+            }
+        }
 
         .about-content {
             width: 50%;

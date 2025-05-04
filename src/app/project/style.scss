@@ -1,0 +1,151 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+@use 'app/styles/animations' as *;
+
+.project-wrapper-container {
+
+    p {
+        all: unset;
+    }
+
+    button {
+        all: unset;
+    }
+
+    .projects-container {
+        @extend .d-flex, .align-center, .gap-12;
+        @extend .full-width, .px-16;
+        opacity: 0;
+        scale: 0;
+        transition: opacity 1.5s ease, scale 1.5s ease;
+
+        &.cont-animate {
+            opacity: 1;
+            scale: 1;
+        }
+    }
+
+    .prev, .next {
+        @extend .cursor-pointer, .p-4;
+        font-size: 2em;
+
+        &:hover {
+            background: $Teal200;
+            color: $Black800;
+            outline: 1px solid $White;
+        }
+    }
+
+    .projects-scroll-container {
+        flex: 1;
+        @extend .d-flex, .gap-12;
+
+        overflow: hidden;
+
+        .projects-slider {
+            @extend .d-flex, .align-stretch;
+            width: 75%;
+            margin: 0 auto;
+        }
+
+        &::-webkit-scrollbar {
+            @extend .d-none;
+        }
+
+        .project-item-wrapper {
+            @extend .d-flex, .justify-center;
+            min-height: 400px;
+            height: 40vh;
+            border: 1px solid $White;
+            margin: 0 auto;
+            min-width: 100%;
+
+            &.animate {
+                animation: fadeInScale 1.5s ease forwards;
+            }
+
+            @keyframes fadeInScale {
+                from {
+                    opacity: 1;
+                    transform: scale(1)
+                }
+                to {
+                    opacity: 0;
+                    transform: scale(0.5);
+                }
+            }
+
+            .project-contents-wrapper {
+                @extend .px-4, .py-8;
+                @extend .d-flex, .flex-column, .gap-4;
+
+                .project {
+                    &-title {
+                        @extend .font-weight-bold;
+                        font-size: 2em;
+                    }
+
+                    &-description {
+                        line-height: 1.4;
+                    }
+
+                    &-code-link {
+                        @extend .p-4, .cursor-pointer, .pos-relative;
+                        text-align: center;
+                        outline: 2px solid $White;
+                        width: fit-content;
+                        transition: outline-color 0.5s ease;
+        
+                        &:hover {
+                            outline: 2px solid $Teal200;
+                        }
+                    }
+                }
+
+                .tech-stack-wrapper {
+                    @extend .d-flex, .gap-4, .flex-wrap;
+
+                    .tech {
+                        @extend .p-2, .font-weight-semi-bold;
+                        background: linear-gradient(
+                            to right,
+                            $Teal200,
+                            $Teal300,
+                            $Teal400
+                        );
+                        border-radius: 9999px;
+                    }
+                }
+            }
+            
+            .project-image-wrapper {
+                @extend .full-height;
+                min-width: 50%;
+                overflow: hidden;
+
+                .project-image {
+                    @extend .pos-relative;
+                    top: 40%;
+                    right: -2rem;
+                    bottom: -2rem;
+                    height: 70%;
+                    object-fit: contain;
+                    transition: rotate 0.5s ease;
+
+                    &:hover {
+                        rotate: -5deg;
+                    }
+
+                    @media (max-width: 1000px) {
+                        height: 100%;
+                        top: 10%;
+                    }
+                }
+            }
+
+            @media (max-width: 1000px) {
+                flex-direction: column;
+            }
+        }
+    }
+}

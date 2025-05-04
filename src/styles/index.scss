@@ -9,21 +9,23 @@
 
 $font-family-base: 'Rajdhani', sans-serif;
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: $font-family-base;
-  line-height: 1.4;
-  box-sizing: border-box;
+  line-height: 1;
   @extend .full-content;
   @extend .font-weight-regular, .font-size-16;
   @extend .m-0, .p-0;
-  line-height: 1;
 
   color: $White;
-  background-color: $Black800;
 }
   
 body {
   margin: 0;
+  background-color: $Black800;
   @extend .full-content;
 
   #root {

@@ -141,10 +141,18 @@
                         top: 10%;
                     }
                 }
+
+                @media (max-width: 500px) {
+                    display: none;
+                }
             }
 
             @media (max-width: 1000px) {
                 flex-direction: column;
+            }
+
+            @media (max-width: 500px) {
+                min-height: fit-content;
             }
         }
     }

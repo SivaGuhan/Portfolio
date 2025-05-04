@@ -35,25 +35,31 @@ body {
 
 @media (max-width: 1200px) {
   :root {
-    font-size: 0.9375em; // 15px
+    font-size: 0.9375em;
   }
 }
 
 @media (max-width: 992px) {
   :root {
-    font-size: 0.875em; // 14px
+    font-size: 0.875em;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    font-size: 0.8125em; // 13px
+    font-size: 0.8125em;
   }
 }
 
 @media (max-width: 576px) {
   :root {
-    font-size: 0.75em; // 12px
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 456px) {
+  :root {
+    font-size: 0.55em;
   }
 }
 

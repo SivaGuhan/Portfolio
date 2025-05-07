@@ -1,12 +1,12 @@
 import { FC, useState } from "react";
-import { MENU_OPTIONS } from "./constants";
 import { MenuOption, NavBarProps } from "./types";
-import { RxHamburgerMenu, RxAvatar } from "react-icons/rx";
+import { TbCircleDashedLetterS } from "react-icons/tb";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { useAppContext } from "../../store/AppContext";
 
 const NavBar: FC<NavBarProps> = (props) => {
 
-    const { onClickMenuItem } = props;
+    const { onClickMenuItem, sections } = props;
     const [isNavBarOpen, setIsNavBarOpen] = useState(false);
 
     const { state } = useAppContext();
@@ -21,15 +21,15 @@ const NavBar: FC<NavBarProps> = (props) => {
         <div className="nav-container">
             <nav className="nav-inner-container">
                 <div className="avatar">
-                    <RxAvatar />
+                    <TbCircleDashedLetterS />
                 </div>
                 <div className={`nav-list-wrapper-container ${isNavBarOpen ? "open" : "closed"}`}>
                     <ul className={`nav-list-wrapper`}>
-                        {MENU_OPTIONS.map((option: MenuOption) => (
+                        {sections.map((option: MenuOption) => (
                             <li
-                                key={option.value}
-                                className={`nav-list-item${activeMenu === option.value ? " active" : ""}`}
-                                onClick={() => onClickMenuItem(option.value)}
+                                key={option.id}
+                                className={`nav-list-item${activeMenu === option.id ? " active" : ""}`}
+                                onClick={() => onClickMenuItem(option.id)}
                             >
                                 {option.label}
                             </li>

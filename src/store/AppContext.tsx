@@ -3,7 +3,12 @@ import { AppState, AppAction } from '../types';
 import { appReducer } from './appReducer';
 
 const initialState: AppState = {
-    activeMenu: 'about'
+    activeMenu: 'about',
+    notifier: {
+        type: '',
+        message: '',
+        show: false
+    }
 }
 
 const AppContext = createContext<{

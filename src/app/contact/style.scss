@@ -1,0 +1,130 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+
+.contact-wrapper-container {
+
+    button {
+        all: unset;
+    }
+
+    p {
+        all: unset;
+    }
+
+    @extend .mt-12;
+    background: rgba(0, 255, 255, 0.2);
+
+    .contact-details-container {
+        @extend .px-12, .pb-12;
+        @extend .d-flex, .align-stretch, .flex-wrap;
+
+        .contact-form {
+            width: 60%;
+    
+            .form-wrapper {
+                @extend .d-flex, .flex-column, .align-center, .justify-center, .gap-2;
+
+                .input-wrapper {
+                    width: 75%;
+                }
+
+                .submit-button-wrapper {
+                    width: 75%;
+
+                    .submit {
+                        @extend .p-4, .cursor-pointer, .font-weight-semi-bold;
+                        text-align: center;
+                        background: $Teal200;
+                        width: fit-content;
+                        transition: all 0.5s ease;
+
+                        &:hover {
+                            background: $Teal400;
+                        }
+
+                        .loading-dots {
+                            display: inline-flex;
+                            align-items: center;
+                        }
+                        
+                        .dot {
+                            font-weight: bold;
+                            animation: blink 1.4s infinite;
+                            opacity: 0;
+
+                            &.one {
+                                animation-delay: 0s;
+                            }
+
+                            &.two {
+                                animation-delay: 0.2s;
+                            }
+
+                            &.three {
+                                animation-delay: 0.4s;
+                            }
+                        }
+
+                        @keyframes blink {
+                            0% { opacity: 0; }
+                            20% { opacity: 1; }
+                            100% { opacity: 0; }
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+        }
+    
+        .contact-link-wrapper {
+            @extend .d-flex, .flex-column, .align-center, .justify-center, .gap-12;
+            @extend .pos-relative;
+            flex-grow: 1;
+
+            .follow-wrapper {
+                @extend .d-flex, .flex-column, .gap-2, .align-center, .justify-center;
+
+                .head {
+                    font-size: 2rem;
+                }
+
+                .follow-items-wrapper {
+                    @extend .d-flex , .gap-4;
+    
+                    svg {
+                        @extend .cursor-pointer;
+                        height: 2em;
+                        width: 2em;
+                        transition: all 0.5s ease;
+    
+                        &:hover {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
+            }
+
+            .details-wrapper {
+                @extend .d-flex, .flex-column, .gap-2;
+                text-align: center;
+                font-size: 1.3rem;
+            }
+
+            @media (max-width: 768px) {
+                gap: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            gap: 2rem;
+        }
+    }
+}

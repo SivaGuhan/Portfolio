@@ -1,0 +1,87 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+
+.input-wrapper {
+
+    p {
+        all: unset;
+    }
+    
+    @extend .pos-relative;
+    width: 100%;
+
+    .input {
+        @extend .p-3;
+        background-color: $Black800;
+        color: inherit;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        outline: none;
+        font-family: inherit;
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus {
+            outline: 1px solid $Teal200;
+        }
+    }
+
+    .input-box {
+        height: 50px;
+
+        @media (max-width: 768px) {
+            height: 35px;
+        }
+    }
+
+    .textarea {
+        resize: none;
+        height: 150px;
+    }
+
+    .label {
+        @extend .pos-absolute;
+        left: 0.75rem;
+        transition: transform 200ms;
+        pointer-events: none;
+        transform-origin: left;
+        padding: 0 0.15rem;
+        opacity: .5;
+    }
+
+    .textarea + .label {
+        top: 0.75rem;
+    }
+
+    .input-box + .label {
+        top: calc(50% - 1rem);
+    }
+    
+    .input:focus + .label,
+    .input:not(:placeholder-shown) + .label {
+        background: $Black800;
+        opacity: 1;
+    }
+
+    .input-box:focus + .label,
+    .input-box:not(:placeholder-shown) + .label {
+        transform: translateY(calc(-50% - 1rem)) scale(.8);
+    }   
+    
+    .textarea:focus + .label,
+    .textarea:not(:placeholder-shown) + .label {
+        transform: translateY(calc(-50% - 0.75rem)) scale(.8);
+    } 
+
+    .input:not(:placeholder-shown) + .label {
+        color: $Teal200;
+    }
+
+    .error-text {
+        color: $Red600;
+        font-size: 0.75rem;
+    }
+}

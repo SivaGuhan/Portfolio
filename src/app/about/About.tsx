@@ -13,7 +13,7 @@ const About: FC = () => {
             for (const entry of entries) {
                 const { width, height } = entry.contentRect;
                 const minSize = Math.min(width, height);
-                setSize(minSize); // Ensure it's square
+                setSize(minSize);
             }
         });
 
@@ -21,6 +21,10 @@ const About: FC = () => {
 
         return () => observer.disconnect();
     }, []);
+
+    const downloadResume = () => {
+        window.open("https://drive.google.com/file/d/1aZ19pLqH2enwQccO56AQP39G5kQzDWMP/view?usp=sharing", "_blank");
+    };
 
     return (
         <section id="about" className="about-section-wrapper">
@@ -33,7 +37,7 @@ const About: FC = () => {
                         </section>
                         <p className="about-subtitle">Frontend Developer</p>
                     </div>
-                    <button className="about-button">
+                    <button className="about-button" onClick={downloadResume}>
                         <div className="icon-wrapper">
                             <PiDownloadSimpleThin />
                         </div>

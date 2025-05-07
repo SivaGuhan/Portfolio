@@ -16,13 +16,6 @@
             @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-4;
             @extend .pos-relative, .p-8;
             max-width: 40%;
-            box-shadow:
-            0 2px 4px 0 #b2dfdb,
-            0 4px 8px 0 #4db6ac,
-            0 6px 12px 0 #26a69a,
-            0 8px 16px 0 #009688,
-            0 10px 20px 0 #00796b;
-            border: 1px solid $White;
             border-radius: 10px;
             opacity: 0;
             transition: opacity 2s ease-in-out;

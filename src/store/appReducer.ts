@@ -7,6 +7,24 @@ export const appReducer = (state: AppState, action: AppAction) : AppState => {
                 ...state,
                 activeMenu: action.payload
             }
+        case 'SET_NOTIFIER':
+            return {
+                ...state,
+                notifier: {
+                    ...state.notifier,
+                    ...action.payload,
+                }
+            }
+        case 'RESET_NOTIFIER':
+            return {
+                ...state,
+                notifier: {
+                    ...state.notifier,
+                    type: '',
+                    message: '',
+                    show: false,
+                }
+        }
         default:
             return state;
     }

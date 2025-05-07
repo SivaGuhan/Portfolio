@@ -1,33 +1,44 @@
 import { FC, useRef } from "react";
 import { debounce } from "../utils/commonUtils";
 import { useAppContext } from "../store/AppContext";
-import { NavBar } from "../components"
+import { NavBar, Notifier } from "../components"
 import About from "./about";
 import Skills from "./skills";
 import Experience from "./experience";
 import Education from "./education";
 import Project from "./project";
+import Contact from "./contact";
 
 const SECTIONS = [
   {
     id: 'about',
+    label: 'About',
     Component: About
   },
   {
     id: 'skills',
+    label: 'Skills',
     Component: Skills
   },
   {
     id: 'experience',
+    label: 'Experience',
     Component: Experience
   },
   {
     id: 'education',
+    label: 'Education',
     Component: Education,
   },
   {
+    label: 'Projects',
     id: 'projects',
     Component: Project,
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+    Component: Contact,
   }
 ]
 
@@ -78,12 +89,14 @@ const App: FC = () => {
       className="full-content"
       style={{
         overflowX: "hidden",
-        overflowY: "auto"
+        overflowY: "auto",
+        scrollBehavior: "smooth",
       }}
       onScroll={handleScroll}
       ref={containerRef}
-    >
-      <NavBar onClickMenuItem={onClickMenuItem}/>
+    > 
+      <Notifier />
+      <NavBar onClickMenuItem={onClickMenuItem} sections={SECTIONS}/>
       {SECTIONS.map((section, index) => (
           <section.Component key={index}/>
       ))}

@@ -1,0 +1,73 @@
+@use 'app/styles/utilities' as *;
+@use 'app/styles/colors' as *;
+
+.notifier-wrapper {
+
+    p {
+        all: unset
+    }
+
+    @extend .pos-fixed, .p-4;
+    @extend .d-flex, .align-center, .gap-4;
+    bottom: 2rem;
+    right: 2rem;
+    min-width: 200px;
+    width: 20vw;
+    z-index: 2000;
+    color: $White;
+
+    &.success {
+        background-color: $Green600;
+    }
+
+    &.error {
+        background-color: $Red600;
+    }
+
+    &.animate {
+        animation: slide 0.3s ease-in-out forwards;
+    }
+
+    &.reverse-animate {
+        animation: slideOut 0.3s ease-in-out;
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(100% + 2rem));
+        }
+    }
+
+    @keyframes slide {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    }
+
+    &::after {
+        content: '';
+        @extend .pos-absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $Black800;
+        z-index: -1;
+        animation: progress 3s linear forwards;
+
+        @keyframes progress {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    }
+}

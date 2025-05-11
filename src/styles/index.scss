@@ -24,8 +24,8 @@ $font-family-base: 'Rajdhani', sans-serif;
 }
   
 body {
-  margin: 0;
   @extend .full-content;
+  margin: 0;
   background-color: $Black800;
   background-image: 
     radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.1) 0%, transparent 40%),

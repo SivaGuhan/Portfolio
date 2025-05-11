@@ -26,8 +26,9 @@
     }
 
     .prev, .next {
-        @extend .cursor-pointer, .p-4;
+        @extend .cursor-pointer, .px-4, .py-2;
         font-size: 2em;
+        border-radius: 50%;
 
         &:hover {
             background: $Teal200;
@@ -52,15 +53,12 @@
             }
         }
 
-        &::-webkit-scrollbar {
-            @extend .d-none;
-        }
-
         .project-item-wrapper {
-            @extend .d-flex, .justify-center;
+            @extend .d-flex, .justify-center, .align-stretch;
             min-height: 400px;
             height: 40vh;
-            border: 1px solid $White;
+            border: 1px solid $Black400;
+            border-radius: 40px 0 0 40px;
             margin: 0 auto;
             min-width: 100%;
 
@@ -123,7 +121,6 @@
             }
             
             .project-image-wrapper {
-                @extend .full-height;
                 min-width: 50%;
                 overflow: hidden;
 
@@ -132,7 +129,7 @@
                     top: 40%;
                     right: -2rem;
                     bottom: -2rem;
-                    height: 70%;
+                    height: 60%;
                     object-fit: contain;
                     transition: rotate 0.5s ease;
 
@@ -141,8 +138,11 @@
                     }
 
                     @media (max-width: 1000px) {
-                        height: 100%;
+                        height: unset;
+                        width: 70%;
                         top: 10%;
+                        right: unset;
+                        left: 10%;
                     }
                 }
 
@@ -153,6 +153,7 @@
 
             @media (max-width: 1000px) {
                 flex-direction: column;
+                border-radius: 40px;
             }
 
             @media (max-width: 500px) {

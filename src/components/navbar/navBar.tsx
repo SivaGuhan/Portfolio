@@ -13,6 +13,11 @@ const NavBar: FC<NavBarProps> = (props) => {
 
     const { activeMenu } = state;
 
+    const onClickMenu = (value: string) => {
+        setIsNavBarOpen((prev) => !prev);
+        onClickMenuItem(value);
+    }
+
     const onClickHamburger = () => {
         setIsNavBarOpen((prev) => !prev);
     }
@@ -29,7 +34,7 @@ const NavBar: FC<NavBarProps> = (props) => {
                             <li
                                 key={option.id}
                                 className={`nav-list-item${activeMenu === option.id ? " active" : ""}`}
-                                onClick={() => onClickMenuItem(option.id)}
+                                onClick={() => onClickMenu(option.id)}
                             >
                                 {option.label}
                             </li>

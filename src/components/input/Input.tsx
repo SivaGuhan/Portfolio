@@ -11,20 +11,22 @@ const Input: FC<InputProps> = (props) => {
 
     return (
         <div className="input-wrapper">
-            {as === "textarea" ? (
-                <textarea
-                    className="input textarea"
-                    placeholder={label}
-                    {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
-                />
-            ) : (
-                <input
-                    className="input input-box"
-                    placeholder={label}
-                    {...(rest as InputHTMLAttributes<HTMLInputElement>)}
-                />
-            )}
-            <label className="label">{label}</label>
+            <div className="input-label-container">
+                {as === "textarea" ? (
+                    <textarea
+                        className="input textarea"
+                        placeholder={label}
+                        {...(rest as TextareaHTMLAttributes<HTMLTextAreaElement>)}
+                    />
+                ) : (
+                    <input
+                        className="input input-box"
+                        placeholder={label}
+                        {...(rest as InputHTMLAttributes<HTMLInputElement>)}
+                    />
+                )}
+                <label className="label">{label}</label>
+            </div>
             <p className="error-text">{error || "\u00A0"}</p>
         </div>
     );

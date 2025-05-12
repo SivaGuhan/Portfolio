@@ -7,8 +7,11 @@
         all: unset;
     }
     
-    @extend .pos-relative;
     width: 100%;
+
+    .input-label-container {
+        @extend .pos-relative;
+    }
 
     .input {
         @extend .p-3;
@@ -45,7 +48,7 @@
     .label {
         @extend .pos-absolute;
         left: 0.75rem;
-        transition: transform 200ms;
+        transition: all 200ms;
         pointer-events: none;
         transform-origin: left;
         padding: 0 0.15rem;
@@ -57,7 +60,8 @@
     }
 
     .input-box + .label {
-        top: calc(50% - 1rem);
+        top: 50%;
+        transform: translateY(-50%);
     }
     
     .input:focus + .label,
@@ -68,7 +72,8 @@
 
     .input-box:focus + .label,
     .input-box:not(:placeholder-shown) + .label {
-        transform: translateY(calc(-50% - 1rem)) scale(.8);
+        top: 0;
+        transform: translateY(-0.5rem) scale(.8);
     }   
     
     .textarea:focus + .label,

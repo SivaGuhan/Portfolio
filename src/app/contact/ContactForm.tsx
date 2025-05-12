@@ -44,10 +44,10 @@ const Form: FC = () => {
 
         try {
             await emailjs.sendForm(
-                "service_9o73afr",
-                "template_xtulaoe",
+                import.meta.env.VITE_EMAIL_SERVICE_ID,
+                import.meta.env.VITE_EMAIL_TEMPLATE_ID,
                 form,
-                "QEb6Z2XW1woO2I4WM"
+                import.meta.env.VITE_EMAIL_PUBLIC_KEY
             );
             dispatch({ type: 'SET_NOTIFIER', payload: { type: 'success', message: 'Successfully Sent', show: true } });
         } catch {

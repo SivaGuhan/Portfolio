@@ -23,7 +23,7 @@ const About: FC = () => {
     }, []);
 
     const downloadResume = () => {
-        window.open("https://drive.google.com/file/d/1aZ19pLqH2enwQccO56AQP39G5kQzDWMP/view?usp=sharing", "_blank");
+        window.open(import.meta.env.VITE_RESUME_LINK, "_blank");
     };
 
     return (
@@ -48,10 +48,6 @@ const About: FC = () => {
                 <div
                     className="avatar"
                     ref={avatarRef}
-                    style={{
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                    }}
                 >
                     <img
                         ref={imgRef}

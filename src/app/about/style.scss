@@ -19,7 +19,11 @@
 
         animation: fade-out linear;
         animation-timeline: view();
-        animation-range: exit -100px;
+        animation-range: exit;
+
+        @media (max-width: 768px) {
+            animation-range: exit 50%;
+        }
 
         @keyframes fade-out {
             50%, 100% {

@@ -26,10 +26,10 @@
                 6px 6px 25px $Teal400,
                 -6px -6px 35px $Teal100;
 
-                @media (max-width: 768px) {
-                    left: 0;
-                }
-          }
+            @media (max-width: 768px) {
+                left: 0;
+            }
+        }
 
         .experience-item {
             @extend .d-flex, .gap-4, .justify-center;
@@ -92,7 +92,7 @@
             }
 
             .experience-item-content {
-                @extend .d-flex, .flex-column, .gap-4 ,.pr-8;
+                @extend .d-flex, .flex-column, .gap-4, .pr-8;
                 flex: 1;
 
                 .experience-item-title {

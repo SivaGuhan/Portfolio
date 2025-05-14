@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import { Heading } from "../../components";
 import { EducationItem, EducationItemProps } from "./types";
 import { EDUCATION_LIST_ITEMS } from "./constants";
@@ -7,31 +7,33 @@ import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 const EducationListItem: FC<EducationItemProps> = (props) => {
     const { education } = props;
 
-    const itemRef = useRef<HTMLDivElement>(null);
-    const [threshold, setThreshold] = useState<number>(0.5);
-    
-    const isItemVisible = useIntersectionObserver(itemRef, {
-        threshold: threshold,
-    })
+    const collegeContainerRef = useRef<HTMLDivElement>(null);
+    const pursueContainerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        if(isItemVisible) setThreshold(0);
-    }, [isItemVisible])
+    const isCollegeContainerIntersecting = useIntersectionObserver(collegeContainerRef);
+    const isPursueContainerIntersecting = useIntersectionObserver(pursueContainerRef);
 
     return (
-        <div 
-            className={`education-item-wrapper${isItemVisible ? ' animate' : ' remove-animate'}`}
-            ref={itemRef}
-        >
-            <div className="education-image-wrapper">
+        <div className="education-item-wrapper">
+            <div className="first-dot timeline-dot"></div>
+            <div 
+                className={`education-name-wrapper${isCollegeContainerIntersecting ? ' title-animate' : ""}`}
+                ref={collegeContainerRef}
+            >
+                <div className="education-item-college-wrapper">
+                   {education.name}
+                </div>
+                <p className="education-item-location">{education.location}</p>
+                <p className="education-item-timeline">{education.timeline}</p>
                 <img src={education.image} alt={education.name} className="education-image"/>
             </div>
-            <div className="education-details-wrapper">
-                <p className="education-college">{education.name}</p>
-                <p className="education-location">{education.location}</p>
-                <p className="education-timeline">{education.timeline}</p>
-                <p className="education-pursue">{education.pursue}</p>
-                <p className="education-description">{education.description}</p>
+            <div className="second-dot timeline-dot"></div>
+            <div 
+                className={`education-item-content${isPursueContainerIntersecting ? ' content-animate' : ""}`}
+                ref={pursueContainerRef}
+            >
+                <p className="education-item-pursue">{education.pursue}</p>
+                <p className="education-item-description">{education.description}</p>
             </div>
         </div>
     )

@@ -21,11 +21,6 @@ const SECTIONS = [
     Component: Skills
   },
   {
-    id: 'experience',
-    label: 'Experience',
-    Component: Experience
-  },
-  {
     id: 'education',
     label: 'Education',
     Component: Education,
@@ -34,6 +29,11 @@ const SECTIONS = [
     label: 'Projects',
     id: 'projects',
     Component: Project,
+  },
+  {
+    id: 'experience',
+    label: 'Experience',
+    Component: Experience
   },
   {
     id: 'contact',
@@ -60,7 +60,7 @@ const App: FC = () => {
       
       if(sectionElement){
         const sectionElementDimensions = sectionElement?.getBoundingClientRect();
-        if(sectionElementDimensions.top < containerDimensions.height / 1.5) activeSection = section.id;
+        if(sectionElementDimensions.top < containerDimensions.height / 2) activeSection = section.id;
       }
     })
 

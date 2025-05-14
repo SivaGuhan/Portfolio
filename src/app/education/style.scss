@@ -1,5 +1,6 @@
 @use 'app/styles/utilities' as *;
 @use 'app/styles/colors' as *;
+@use 'app/styles/animations' as *;
 
 .education-wrapper-container {
 
@@ -9,61 +10,137 @@
     }
 
     .education-list-wrapper {
-        @extend .d-flex, .justify-center, .align-stretch, .gap-8, .flex-wrap;
+        @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-12;
         @extend .pos-relative;
 
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: calc(35% + 1rem + 7.5px);
+            width: 2px;
+            height: 100%;
+            background-color: $White;
+            transform: translateX(-50%);
+            box-shadow: 
+                3px 3px 8px $Teal200, 
+                -3px -3px 16px $Teal300,
+                6px 6px 25px $Teal400,
+                -6px -6px 35px $Teal100;
+
+            @media (max-width: 768px) {
+                left: unset;
+                right: 0;
+                transform: unset;
+            }
+        }
+
         .education-item-wrapper {
-            @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-4;
-            @extend .pos-relative, .p-8;
-            max-width: 40%;
-            border-radius: 10px;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
+            @extend .d-flex, .gap-4, .justify-center;
 
-            &.animate {
-                opacity: 1;
+            .first-dot {
+                display: none;
+
+                @media (max-width: 768px) {
+                    display: block;
+                }
             }
 
-            &.remove-animate {
-                opacity: 0;
-                transition: none;
+            .second-dot {
+                display: block;
+
+                @media (max-width: 768px) {
+                    display: none;
+                }
             }
 
-            .education-image-wrapper {
+            .timeline-dot {
+                width: 15px;
+                height: 15px;
+                background-color: $Teal300;
+                box-shadow: 0 0 5px $Teal400,
+                0 0 10px $Teal400,
+                0 0 20px $Teal300,
+                0 0 40px $Teal200;
+                border-radius: 50%;
+                z-index: 1;
+
+                @media (max-width: 768px) {
+                    position: absolute;
+                    top: 0;
+                    right: calc(-2rem - 7.5px);
+                }
+            }
+
+            .education-name-wrapper {
+                @extend .d-flex, .flex-column, .align-flex-end, .gap-4, .pl-12;
+                width: 35%;
+
+                .education-item-college-wrapper {
+                    @extend .font-weight-bold, .d-inline;
+                    font-size: 2em;
+                    text-align: right;
+                }
+
                 .education-image {
-                    max-height: 10rem;
-                    object-fit: cover;
+                    width: 30px;
+                }
+
+                @media (max-width: 768px) {
+                    width: unset;
                 }
             }
 
-            .education-details-wrapper {
-                @extend .d-flex, .flex-column, .justify-center, .align-center, .gap-4;
+            .education-item-content {
+                @extend .d-flex, .flex-column, .gap-4, .pr-8;
                 flex: 1;
-                .education {
-                    &-college {
-                        text-align: center;
-                        font-size: 2em;
-                    }
 
-                    &-pursue {
-                        text-align: center;
-                        font-size: 1.5em;
-                    }
-
-                    &-description {
-                        text-align: center;
-                        font-size: 1.3em;
-                        line-height: 1.7em;
-                    }
+                .education-item-pursue {
+                    @extend .font-weight-semi-bold;
+                    font-size: 1.7em;
                 }
-            }
 
-            @media (max-width: 1250px) {
-                max-width: 50%;
+                .education-item-description {
+                    font-size: 1.2em;
+                    line-height: 1.7em;
+                }
+
+                @media (max-width: 768px) {
+                    padding: 0;
+                }
             }
 
             @media (max-width: 768px) {
-                max-width: 70%;
+                position: relative;
+                flex-direction: column;
+                padding-left: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            margin-right: 4rem;
+            padding-right: 2rem;
+            text-align: right;
+        }
+    }
+
+    .title-animate {
+        @include slideLeft;
+        & {
+            animation: slideInFromLeft 1s ease-out forwards;
+        }  
+    }
+
+    .content-animate {
+        @include slideRight;
+        & {
+            animation: slideInFromRight 1s ease-out forwards;
+        }
+
+         @media (max-width: 768px) {
+            @include slideLeft;
+            & {
+              animation: slideInFromLeft 1s ease-out forwards;
             }
         }
     }

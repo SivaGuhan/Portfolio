@@ -21,9 +21,9 @@ const SECTIONS = [
     Component: Skills
   },
   {
-    id: 'education',
-    label: 'Education',
-    Component: Education,
+    id: 'experience',
+    label: 'Experience',
+    Component: Experience
   },
   {
     label: 'Projects',
@@ -31,9 +31,9 @@ const SECTIONS = [
     Component: Project,
   },
   {
-    id: 'experience',
-    label: 'Experience',
-    Component: Experience
+    id: 'education',
+    label: 'Education',
+    Component: Education,
   },
   {
     id: 'contact',
